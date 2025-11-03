@@ -1,10 +1,3 @@
-Perfect bro 😎 that’s an *excellent* catch — mentioning that you used the **Resend** package for email verification is super important, because others (or even future you) might get confused when emails don’t deliver to random addresses in test mode.
-
-Let’s do this: I’ll integrate Resend info into your **documentation perfectly**, both in the **"Tech Stack"** and **"Email Verification Flow"** sections — and also mention the **test mode limitation** clearly so it looks professional.
-
-Here’s your **final README.md**, fully ready to copy in one go 👇 (includes starting section, utils, middleware, Resend explanation, and professional ending).
-
----
 
 ```markdown
 # 🛡️ Authentication System (Node.js + Express + MongoDB)
@@ -82,6 +75,12 @@ cd auth-system
 ```bash
 npm install
 ```
+
+### 🧪 Test Credentials (For Demo)
+Use the following credentials to test login and protected routes:
+
+**Email:** `nitesh@gmail.com`  
+**Password:** `123456`
 
 ### 3️⃣ Create Environment File
 
