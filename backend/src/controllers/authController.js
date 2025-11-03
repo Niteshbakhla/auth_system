@@ -27,10 +27,9 @@ export const registerUser = asyncHandler(async (req, res, next) => {
             // Generating token
             const accessToken = generateAccessToken(newUser);
             const token = generateVerificationToken(newUser._id)
-            console.log(token)
 
             // Send verification email
-            const verificationLink = `http://localhost:5000/verify?token=${token}`;
+            const verificationLink = `https://auth-system-6f4d.onrender.com/api/auth/verify?token=${token}`;
             await sendVerificationEmail(newUser.email, verificationLink);
 
 
