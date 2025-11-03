@@ -93,23 +93,23 @@ export const loginUser = asyncHandler(async (req, res, next) => {
 // @desc verify token
 // @route GET/ api/auth/verify      
 
-export const verifyUser = async (req, res) => {
-            try {
-                        const token = req.query.token;
-
-                        const decoded = jwt.verify(token, config.JWT_SECRET);
-                        const user = await User.findById(decoded.id);
-                        if (!user) return res.status(404).json({ message: "User not found" });
-
-                        if (user.isVerified) return res.status(200).json({ message: "Already verified" });
-                        user.isVerified = true;
-                        await user.save();
-
-                        res.status(200).json({ message: "Email verified successfully!" });
-            } catch (error) {
-                        res.status(500).json({ message: "Internal server error", error: error.message });
+export const verifyUser = asyncHandler(async (req, res) => {
+            const token = req.query.token;
+            return console
+            if (!token) {
+                        throw new CustomError("Please provide a token")
             }
-}
+            const decoded = jwt.verify(token, config.JWT_SECRET);
+            const user = await User.findById(decoded.id);
+            if (!user) return res.status(404).json({ message: "User not found" });
+
+            if (user.isVerified) return res.status(200).json({ message: "Already verified" });
+            user.isVerified = true;
+            await user.save();
+
+            res.status(200).json({ message: "Email verified successfully!" });
+
+})
 
 
 // @desc    Logout user
