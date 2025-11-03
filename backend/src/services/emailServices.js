@@ -1,3 +1,4 @@
+import Resend from "../config/mailConfig.js"
 import config from "../config/config.js";
 // import transporter from "../config/mailConfig.js";
 
@@ -13,7 +14,7 @@ export const sendVerificationEmail = async (to, link) => {
 
   // await transporter.sendMail({ to, subject, html });  can't use smtp in free tier render it will block the smtp connection
   try {
-    await resend.emails.send({
+    await Resend.emails.send({
       from: config.SENDER_EMAIL,
       to,
       subject,

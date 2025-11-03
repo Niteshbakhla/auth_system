@@ -9,4 +9,5 @@ const transporter = nodemailer.createTransport({
             }
 });
 
-export const resend = new Resend(config.RESEND_API_KEY);
+const resend = new Resend(config.RESEND_API_KEY);
+export default resend;
