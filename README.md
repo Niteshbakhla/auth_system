@@ -142,8 +142,8 @@ Registers a new user and sends an email verification link via **Resend API**.
 
 ```json
 {
-  "name": "John Doe",
-  "email": "john@example.com",
+  "name": "nitesh ",
+  "email": "nitesh@example.com",
   "password": "123456"
 }
 ```
@@ -156,8 +156,8 @@ Registers a new user and sends an email verification link via **Resend API**.
   "message": "User registered successfully",
   "user": {
     "id": "67a123b...",
-    "name": "john doe",
-    "email": "john@example.com"
+    "name": "nitesh ",
+    "email": "nitesh@example.com"
   },
   "accessToken": "jwt_token_here"
 }
@@ -189,7 +189,7 @@ Logs in an existing user after email verification.
 
 ```json
 {
-  "email": "john@example.com",
+  "email": "nitesh@example.com",
   "password": "123456"
 }
 ```
@@ -202,8 +202,8 @@ Logs in an existing user after email verification.
   "message": "Login successful",
   "user": {
     "id": "67a123b...",
-    "name": "john doe",
-    "email": "john@example.com"
+    "name": "nitesh ",
+    "email": "nitesh@example.com"
   },
   "accessToken": "jwt_access_token"
 }
@@ -259,8 +259,8 @@ Returns user details excluding password.
   "success": true,
   "user": {
     "id": "67a123b...",
-    "name": "john doe",
-    "email": "john@example.com",
+    "name": "nitesh ",
+    "email": "nitesh@example.com",
     "isVerified": true
   }
 }
