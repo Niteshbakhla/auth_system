@@ -13,7 +13,7 @@ app.use(cors({
 }))
 
 app.get("/", (req, res) => {
-            res.send("<h1>Welcome to My API 🚀</h1><p>Use Postman or cURL to test the endpoints.</p>");
+            res.sendFile("welcome.html", { root: "." }); // or use res.send(`...html here...`)
 });
 
 app.use(cookieParser())
