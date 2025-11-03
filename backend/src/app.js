@@ -12,7 +12,7 @@ app.use(cors({
             credentials: "true"
 }))
 
-app.get("/api/", (req, res) => res.json({ message: "Welcome to " }))
+app.get("/", (req, res) => res.json({ message: "Welcome to " }))
 
 app.use(cookieParser())
 
