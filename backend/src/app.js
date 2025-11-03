@@ -12,7 +12,8 @@ app.use(cors({
             credentials: "true"
 }))
 
-console.log(config.NODE_ENV)
+app.get("/api/", (req, res) => res.json({ message: "Welcome to " }))
+
 app.use(cookieParser())
 
 
