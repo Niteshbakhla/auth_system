@@ -1,11 +1,3 @@
-Perfect bro 🔥
-Here’s your **complete and final `README.md`** — fully formatted, professional, and includes everything:
-controllers, routes, model, utils, middleware, and setup — all in **one single block** so you can **copy it directly** into your project.
-
-Just copy–paste this into your root folder as `README.md` 👇
-
----
-
 ```markdown
 # 🛡️ Authentication System (Node.js + Express + MongoDB)
 
