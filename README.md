@@ -1,8 +1,32 @@
+Perfect bro 😎 that’s an *excellent* catch — mentioning that you used the **Resend** package for email verification is super important, because others (or even future you) might get confused when emails don’t deliver to random addresses in test mode.
+
+Let’s do this: I’ll integrate Resend info into your **documentation perfectly**, both in the **"Tech Stack"** and **"Email Verification Flow"** sections — and also mention the **test mode limitation** clearly so it looks professional.
+
+Here’s your **final README.md**, fully ready to copy in one go 👇 (includes starting section, utils, middleware, Resend explanation, and professional ending).
+
+---
+
 ```markdown
 # 🛡️ Authentication System (Node.js + Express + MongoDB)
 
 A secure and scalable authentication system built using **Node.js**, **Express**, and **MongoDB**.  
 It implements **JWT-based authentication**, **email verification**, **token refresh**, and **user profile management** with proper **error handling** and **security best practices**.
+
+---
+
+## 🧩 Overview
+This backend project provides a full authentication flow designed for modern web apps.  
+It includes registration, login, logout, verification, and token management while following clean **MVC architecture** and reusable **utility-based design**.
+
+---
+
+## ✨ Features
+- 🔐 JWT-based Authentication (Access + Refresh Tokens)
+- 📧 Email Verification System using **Resend API**
+- 🔄 Token Refresh and Expiry Handling
+- 👤 Secure User Profile Fetching
+- ⚙️ Custom Error & Async Middleware
+- 🧱 Scalable MVC Structure
 
 ---
 
@@ -40,7 +64,8 @@ It implements **JWT-based authentication**, **email verification**, **token refr
 - **MongoDB + Mongoose** — Database and ORM  
 - **JWT (jsonwebtoken)** — Authentication tokens  
 - **bcryptjs** — Password hashing  
-- **Nodemailer** — Sending verification emails  
+- **Resend API** — Email sending service for verification links  
+- **Nodemailer (optional)** — For local or fallback email sending  
 
 ---
 
@@ -48,7 +73,7 @@ It implements **JWT-based authentication**, **email verification**, **token refr
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/Niteshbakhla/auth_system.git
+git clone https://github.com/yourusername/auth-system.git
 cd auth-system
 ````
 
@@ -67,6 +92,7 @@ MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=your_access_token_secret
 JWT_REFRESH_SECRET=your_refresh_token_secret
 NODE_ENV=development
+RESEND_API_KEY=your_resend_api_key
 ```
 
 ### 4️⃣ Run the Server
@@ -85,7 +111,7 @@ Server will run on:
 ### 🔹 1. Register User
 
 **POST** `/api/auth/register`
-Registers a new user and sends an email verification link.
+Registers a new user and sends an email verification link via **Resend API**.
 
 **Request Body:**
 
@@ -117,7 +143,7 @@ Registers a new user and sends an email verification link.
 ### 🔹 2. Verify Email
 
 **GET** `/api/auth/verify?token=<verification_token>`
-Verifies a user’s email using a token sent in email.
+Verifies a user’s email using the token sent in email.
 
 **Response:**
 
@@ -311,12 +337,22 @@ export const generateAccessToken = (user) => jwt.sign(
 
 ---
 
-## ✉️ Email Verification Flow
+## ✉️ Email Verification (Using Resend API)
 
-1. User registers → a verification token is generated.
-2. Email with a verification link is sent using `sendVerificationEmail()`.
-3. User clicks the link → backend verifies and sets `isVerified` to true.
-4. User can now log in successfully.
+The system uses the **Resend API** to send verification emails.
+
+**Flow:**
+
+1. When a new user registers, a verification token is generated.
+2. The backend calls the Resend API via `sendVerificationEmail()` in **test mode**.
+3. A verification link is sent to the user’s **authorized test email** (or your verified domain).
+4. The user clicks the link, and their email is verified (`isVerified: true`).
+
+⚠️ **Important Notes about Resend:**
+
+* The **free (test) mode** only allows sending emails to your **own verified domain or email address**.
+* You **cannot send to random recipients** until you add a verified domain or upgrade your Resend plan.
+* Ideal for testing verification flow in development mode.
 
 ---
 
@@ -341,7 +377,7 @@ All controllers use:
 ## 🧭 Auth Flow Summary
 
 ```
-[ Register ] → [ Email Verification ] → [ Login ] → [ Access Token ]  
+[ Register ] → [ Email Verification (Resend API) ] → [ Login ] → [ Access Token ]  
       ↓                                             ↑
    [ Verification Link ]        [ Refresh Token to Renew Access ]
 ```
@@ -355,12 +391,11 @@ All controllers use:
 * Implement **Role-Based Access Control (RBAC)**
 * Add **Rate Limiting** to prevent brute-force attacks
 
----
 
 ## 🧑‍💻 Author
 
 **Developed by:** Nitesh Bakhla
-**Stack:** MERN | JWT | Clean MVC Architecture
+**Stack:** MERN | JWT | Clean MVC Architecture | Resend API Integration
 **Goal:** Secure, Scalable, and Maintainable Authentication System 🚀
 
 
