@@ -13,13 +13,14 @@ export const sendVerificationEmail = async (to, link) => {
   `;
 
   // await transporter.sendMail({ to, subject, html });  can't use smtp in free tier render it will block the smtp connection
+  console.log(config.SENDER_EMAIL)
   try {
-    await Resend.emails.send({
-      from: config.SENDER_EMAIL,
-      to,
-      subject,
-      html,
-    });
+      await Resend.emails.send({
+        from: "Nitesh Backend <onboarding@resend.dev>",
+        to,
+        subject,
+        html,
+      });
     console.log("✅ Email sent successfully");
   } catch (err) {
     console.error("❌ Error sending email:", err);
