@@ -95,7 +95,6 @@ export const loginUser = asyncHandler(async (req, res, next) => {
 
 export const verifyUser = asyncHandler(async (req, res) => {
             const token = req.query.token;
-            return console
             if (!token) {
                         throw new CustomError("Please provide a token")
             }
