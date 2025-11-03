@@ -12,7 +12,9 @@ app.use(cors({
             credentials: "true"
 }))
 
-app.get("/", (req, res) => res.json({ message: "Welcome to " }))
+app.get("/", (req, res) => {
+            res.send("<h1>Welcome to My API 🚀</h1><p>Use Postman or cURL to test the endpoints.</p>");
+});
 
 app.use(cookieParser())
 
