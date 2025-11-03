@@ -78,9 +78,10 @@ npm install
 
 ### 🧪 Test Credentials (For Demo)
 Use the following credentials to test login and protected routes:
-
+```bash
 **Email:** `nitesh@gmail.com`  
 **Password:** `123456`
+```
 
 ### 3️⃣ Create Environment File
 
