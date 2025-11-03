@@ -76,12 +76,37 @@ cd auth-system
 npm install
 ```
 
+---
+
+## 🌐 Live API Base URL
+
+Your deployed backend is live and ready for testing at:  
+👉 **https://auth-system-6f4d.onrender.com**
+
+---
+
+## 🧪 Available Endpoints
+
+| Method | Endpoint | Description |
+|--------|-----------|-------------|
+| **POST** | `/api/auth/register` | Register a new user |
+| **POST** | `/api/auth/login` | Login with email & password |
+| **GET** | `/api/auth/verify` | Verify user email via token |
+| **GET** | `/api/auth/logout` | Logout the user (requires token) |
+
+🧠 **Base URL:** `https://auth-system-6f4d.onrender.com`  
+So for example, the full register API is:  
+➡️ `https://auth-system-6f4d.onrender.com/api/auth/register`
+
+---
+
 ### 🧪 Test Credentials (For Demo)
-Use the following credentials to test login and protected routes:
-```bash
+Use these credentials to test login and protected routes:
+
 **Email:** `nitesh@gmail.com`  
 **Password:** `123456`
-```
+
+---
 
 ### 3️⃣ Create Environment File
 
