@@ -12,8 +12,13 @@ app.use(cors({
             credentials: "true"
 }))
 
+app.get('/crash', (req, res) => {
+            throw new Error("Simulated crash");
+});
+
+
 app.get("/", (req, res) => {
-            res.sendFile("welcome.html", { root: "." }); // or use res.send(`...html here...`)
+            res.sendFile("welcome.html", { root: "." });
 });
 
 app.use(cookieParser())
